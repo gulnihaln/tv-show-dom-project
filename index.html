@@ -3,36 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TV Show Project | Gulnihal (gulnihaln)</title>
+    <title>TV Show Project | Gulnihal Naldoken (gulnihaln)</title>
     <link href="style.css" rel="stylesheet" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
   </head>
 
   <body>
     <header>
-      <section id="search-container">
-        <form action="">
-          <input type="search" id="search" placeholder="search...">
-        </form>
-      </section>
+      <div id='logo'>
+        <img id="logo" src="tvgu-logo.png" alt="tvGu-logo">
+      </div>
+      <div id="selectAndSearch"> 
+        <section id="selectMenu">
+          <select name="episodeSelect" id="episodeSelect">
+            <option value="">--Choose an Episode--</option>
+        </section>
+        <section id="search-container">
+          <form action="">
+            <input type="search" id="search" placeholder="search...">
+            <label for="search" id="displayNumberOfMovies"></label>
+          </form>
+        </section>
+      </div>
     </header>
     <div id="root">
-      <h1>Hello my TV episodes will be shown here</h1>
+      <h1>Game of Thrones episodes</h1>
     </div>
-    
-    <!-- <section id="card">
-      <article>
-        <h2>Movie name</h2>
-        <img src="" alt="">
-        <p id="season-episode">Season & Episodes</p>
-        <p id="summary">Summary</p>
-      </article>
-    </section> -->
-    
+
     <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
     <script src="episodes.js"></script>
 
     <!-- Loads YOUR javascript code -->
-    <script src="script.js"></script>
+    <script src="script.js" type="module"></script>
+
   </body>
+  <footer>
+    <p> 
+      for more information
+      <a href="https://www.tvmaze.com/shows/82/game-of-thrones/episodes" target="_blank">
+      &copy; TV Maze</a>
+    </p>
+  </footer>
 </html>
