@@ -109,7 +109,7 @@ header {
 
  /* ---- select menu ----- */
 /* ---- search input ---- */
-#search, #episodeSelect {
+#search, #episodeSelect, #showEpisodeSelect, #show-search {
   border-radius: 15px;
   border: none;
   background-color: #86C232;
