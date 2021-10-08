@@ -2,7 +2,7 @@
 export default function episodeSelect(allEpisodes) {
   const select = document.getElementById("episodeSelect");
   var fragment = document.createDocumentFragment();
-
+  select.innerHTML = "";
   allEpisodes.forEach((episode) => {
     const option = document.createElement("option");
     option.text = `S${("" + episode.season).padStart(2, 0)}E${(
