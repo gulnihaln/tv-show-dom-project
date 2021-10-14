@@ -3,7 +3,7 @@ import episodeSelect from './selectMenu.js';
 import searchEpisode from './search.js';
 import selectShow from './selectShowMenu.js';
 import searchShows from './searchShows.js';
-import makePageForShows from './makePageForShows';
+// import makePageForShows from './makePageForShows';
 
 let allEpisodes = [];
 let allShows =[];
@@ -15,7 +15,7 @@ function setup() {
   allShows = getAllShows();
   selectShow(allShows);
   searchShows(allShows);
-  makePageForShows(allShows);
+  // makePageForShows(allShows);
 
 }
 
@@ -111,6 +111,4 @@ function fetchData(url = "https://api.tvmaze.com/shows/82/episodes") {
     });
 }
 
-//acilis onload show cards 
-// tiklayinca select shows
 
