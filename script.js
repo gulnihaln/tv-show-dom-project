@@ -1,12 +1,21 @@
 //You can edit ALL of the code here
 import episodeSelect from './selectMenu.js';
 import searchEpisode from './search.js';
+import selectShow from './selectShowMenu.js';
+import searchShows from './searchShows.js';
+import makePageForShows from './makePageForShows';
 
 let allEpisodes = [];
+let allShows =[];
+// let url = "https://api.tvmaze.com/shows/82/episodes";
 function setup() {
   // allEpisodes = getAllEpisodes();
   makePageForEpisodes(allEpisodes);
   episodeSelect(allEpisodes);
+  allShows = getAllShows();
+  selectShow(allShows);
+  searchShows(allShows);
+  makePageForShows(allShows);
 
 }
 
@@ -51,7 +60,7 @@ function makePageForEpisodes(episodeList) {
   rootElem.appendChild(section);
 }
 
-window.onload = fetchData; // fetch olacak
+window.onload = fetchData(); 
 
 const search = document.getElementById("search");
 const displayNumberOfMovies = document.getElementById("displayNumberOfMovies");
@@ -67,30 +76,41 @@ search.addEventListener("input", (event) => {
  document.getElementById("episodeSelect").addEventListener("change", (event) => {
    let selectedEpisode = searchEpisode(event.target.value, allEpisodes);
    makePageForEpisodes(selectedEpisode);
+   
  });
+// search shows
+let selectedShow = null;
+const searchShow = document.getElementById('show-search');
+const displayNumberOfShows = document.getElementById('displayNumberOfShows');
+searchShow.addEventListener('input', (event)=> {
+  let searchedShows = searchShows(event.target.value, allShows);
+  makePageForEpisodes(searchedShows);
+})
 
-//  let url = "https://api.tvmaze.com/shows/82/episodes";
-// fetch (url).then(response => response.json()).then(data => console.log(data));
+//select shows - show clicked
+const showSelectorEl =  document.getElementById('showEpisodeSelect')
+showSelectorEl.addEventListener('change', (event) => {
+  let url = `https://api.tvmaze.com/shows/${event.target.value}/episodes`;
+  fetchData(url);
+  selectedShow = event.target.value;
+  console.log("selectedShow = ", selectedShow, allEpisodes);
+  searchShow.remove();
+  showSelectorEl.remove();
+})
 
-// let url = "https://api.tvmaze.com/shows/82/episodes";
-// fetch(url)
-//   .then((x) => x.json())
-//   .then((data) => console.log(data[0].name));
-
-
-// fetch icin function
-// fetch icinde sonunda setup i cagir
-
-function fetchData (){
-  let url = "https://api.tvmaze.com/shows/527/episodes";
+function fetchData(url = "https://api.tvmaze.com/shows/82/episodes") {
   fetch(url)
-    .then(response => response.json())
-    .then(data => {
+    .then((response) => response.json())
+    .then((data) => {
       allEpisodes = data;
+      console.log(allEpisodes)
       setup();
     })
-    .catch(error => {
+    .catch((error) => {
       console.log("Error", error);
     });
-    
 }
+
+//acilis onload show cards 
+// tiklayinca select shows
+

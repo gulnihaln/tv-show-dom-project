@@ -29,12 +29,27 @@
         </section>
       </div>
     </header>
+    <section id="shows">
+      <div id="showSelectAndSearch">
+        <section id="showSelectMenu">
+          <select name="showEpisodeSelect" id="showEpisodeSelect">
+            <option value="">--Choose a show--</option>
+        </section>
+        <section id="show-search-container">
+          <form action="">
+            <input type="show-search" id="show-search" placeholder="search...">
+            <label for="show-search" id="displayNumberOfShows"></label>
+          </form>
+        </section>
+      </div>
+    </section>
     <div id="root">
       <h1>Game of Thrones episodes</h1>
     </div>
 
     <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
     <script src="episodes.js"></script>
+    <script src="shows.js"></script>
 
     <!-- Loads YOUR javascript code -->
     <script src="script.js" type="module"></script>
